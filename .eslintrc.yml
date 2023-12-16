@@ -16,5 +16,5 @@ plugins:
   - prettier
 rules: {
   -prettier/prettier: 0,
-  -react/prop-types: 0
+  -react/prop-types: off,
 }

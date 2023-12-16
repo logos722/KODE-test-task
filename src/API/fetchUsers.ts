@@ -10,9 +10,12 @@ export const getAllUsers = async () => {
         }
       }
     )
-  
-    const result = response.data.json()
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-ignore
+    const result = response.data 
     console.log(result)
+    return result.items
+    
   } catch (error) {
     console.log(error)
   }
@@ -27,9 +30,21 @@ export const getUserByParam = async (params: Departs)  => {
         }
       }
     )
+
+    const lol = await axios.get(
+      'https://stoplight.io/mocks/kode-frontend-team/koder-stoplight/86566464/users', {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    )
+
+    console.log(lol.data)
   
-    const result = response.data.json()
+    const result = response.data 
     console.log(result)
+    return result.items
+
   } catch (error) {
     console.log(error)
   }
