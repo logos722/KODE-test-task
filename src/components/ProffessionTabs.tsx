@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 
 
 
-const ProffessionTabs = ({proffessions}: any) => {
+const ProffessionTabs = ({department}: any) => {
   const dispatch = useDispatch()
 
   const changeDepart = (e: any) => {
@@ -17,10 +17,10 @@ const ProffessionTabs = ({proffessions}: any) => {
 
   return (
     <div>
-      {proffessions ? proffessions.map((item: any, index: number) => {
+      {department ? department.map((item: any, index: number) => {
         return (
           <div onClick={(e) => changeDepart(e)} key={index}>
-            {item.department}
+            {item}
             
           </div>
         )

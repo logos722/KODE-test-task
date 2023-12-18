@@ -1,13 +1,15 @@
-import { combineReducers } from "redux";
 import { configureStore } from "@reduxjs/toolkit";
 import usersReducer from "./reducers/userReducers";
+import { modalReducer } from "./reducers/modalReducer";
+
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 //@ts-nocheck
 const store = configureStore({
-  reducer: usersReducer,
+  reducer: {
+  user:  usersReducer,
+  modal: modalReducer,
+  }
 });
-
-export type RootState = ReturnType<typeof usersReducer>;
 
 export default store;

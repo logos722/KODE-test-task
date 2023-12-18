@@ -1,7 +1,8 @@
-import { SET_USERS, SET_SELECTED_DEPARTMENT, SET_SEARCH_TERM, SET_SORT_OPTION } from "../actionTypes";
+import { SET_USERS, SET_SELECTED_DEPARTMENT, SET_SEARCH_TERM, SET_SORT_OPTION, SET_DEPARTMENTS } from "../actionTypes";
 
 const initialState = {
   users: [],
+  usersDeparts: [],
   selectedDepartment: "all",
   searchTerm: "",
   sortOption: "alphabetical",
@@ -17,6 +18,8 @@ const usersReducer = (state = initialState, action: any) => {
       return { ...state, searchTerm: action.payload };
     case SET_SORT_OPTION:
       return { ...state, sortOption: action.payload };
+    case SET_DEPARTMENTS:
+      return { ...state, usersDeparts: action.payload };
     default:
       return state;
   }

@@ -1,12 +1,17 @@
 import { Departs } from "../../types";
 import { getAllUsers, getUserByParam } from "../API/fetchUsers";
-import { SET_USERS, SET_SELECTED_DEPARTMENT, SET_SEARCH_TERM, SET_SORT_OPTION } from "./actionTypes";
+import { SET_USERS, SET_SELECTED_DEPARTMENT, SET_SEARCH_TERM, SET_SORT_OPTION, SET_DEPARTMENTS } from "./actionTypes";
 
 
 
 export const setSelectedDepartment = (department: string) => ({
   type: SET_SELECTED_DEPARTMENT,
   payload: department,
+});
+
+export const setAllDeparts = (dep: any) => ({
+  type: SET_DEPARTMENTS,
+  payload: dep,
 });
 
 export const setSearchTerm = (term: string) => ({
@@ -24,6 +29,9 @@ export const fetchUsers = () => {
     try {
       const users = await getAllUsers(); // Вызов функции API
       dispatch(setUsers(users)); // Диспатч актуализированных данных в хранилище
+      dispatch(setAllDeparts(users.map((item: any) => {
+        return item.department
+      })))
     } catch (error) {
       console.error("Error fetching users:", error);
     }
@@ -46,3 +54,4 @@ export const setUsers = (users: any) => ({
   type: SET_USERS,
   payload: users,
 });
+
