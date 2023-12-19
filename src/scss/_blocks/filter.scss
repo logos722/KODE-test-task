@@ -1,0 +1,28 @@
+.filter {
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 6px 12px 6px 25px;
+  background: url("../../img/icons/search.svg") no-repeat left;
+  background-color: #F7F7F8;
+  background-size: 20px;
+  border-radius: 20px;
+  border: none;
+  &__wrapper {
+    position: relative;
+    margin: 0 auto;
+    margin-top: 18px;
+    width: 1248px;
+    height: 25px;
+  }
+  &__modal {
+    position: absolute;
+    background: url("../../img/icons/list-ui-alt.svg") no-repeat center;
+    width: 20px;
+    height: 20px;
+    border: none;
+    right: 0;
+    top: 10px;
+    cursor: pointer;
+  }
+}

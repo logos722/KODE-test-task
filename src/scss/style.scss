@@ -1,0 +1,29 @@
+@import './_varibles/mainColor.scss';
+
+@import './_blocks/filter.scss';
+@import './_blocks/headers.scss';
+@import './_blocks/mainList.scss';
+@import './_blocks/modal.scss';
+@import './_blocks/tabs.scss';
+@import './_blocks/top.scss';
+@import './_blocks/userCards.scss';
+
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+
+
+* {
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+  margin: 0 auto;
+  width: 1600px;
+}

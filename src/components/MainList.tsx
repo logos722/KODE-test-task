@@ -1,10 +1,12 @@
 import React from 'react'
 import UserItems from './UserItems'
 import { useSelector } from 'react-redux'
+import { useNavigate } from "react-router-dom";
 
 
 
 const MainList = ({users}: any) => {
+  const navigate = useNavigate();
   const searchTerm = useSelector((state: any) => state.user.searchTerm)
   const sortTerm = useSelector((state: any) => state.modal.sortByAlphabet)
   const userReady = (users: any) => {
@@ -32,7 +34,7 @@ const MainList = ({users}: any) => {
 
   return (
     <div>
-      {filteredUsers() ? filteredUsers().map((user: any, index: number) => <UserItems key={index} user={user} />) : null}
+      {filteredUsers() ? filteredUsers().map((user: any, index: number) => <div key={index} onClick={() => navigate(`${user.id}`, { replace: false })}><UserItems key={index} user={user} /></div>) : null}
     </div>
   )
 }

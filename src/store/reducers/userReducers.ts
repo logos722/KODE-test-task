@@ -2,7 +2,7 @@ import { SET_USERS, SET_SELECTED_DEPARTMENT, SET_SEARCH_TERM, SET_SORT_OPTION, S
 
 const initialState = {
   users: [],
-  usersDeparts: [],
+  usersDeparts: ['all'],
   selectedDepartment: "all",
   searchTerm: "",
   sortOption: "alphabetical",
@@ -19,7 +19,7 @@ const usersReducer = (state = initialState, action: any) => {
     case SET_SORT_OPTION:
       return { ...state, sortOption: action.payload };
     case SET_DEPARTMENTS:
-      return { ...state, usersDeparts: action.payload };
+      return { ...state, usersDeparts: ['all', ...action.payload] };
     default:
       return state;
   }

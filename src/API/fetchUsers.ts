@@ -1,6 +1,8 @@
 import axios from "axios";
 import {Departs} from '../../types'
 
+
+
 export const getAllUsers = async () => {
   try {
     const response = await axios.get(

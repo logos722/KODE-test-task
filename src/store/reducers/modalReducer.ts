@@ -1,7 +1,7 @@
 // reducers/modalReducer.ts
 
 import { createReducer } from "@reduxjs/toolkit";
-import { openModal, closeModal, changeSortAlph, changeSortBirth } from "../modalActions";
+import { showModal, changeSortAlph, changeSortBirth } from "../modalActions";
 
 interface ModalState {
   isOpen: boolean;
@@ -17,12 +17,10 @@ const initialState: ModalState = {
 
 export const modalReducer = createReducer(initialState, (builder) => {
   builder
-    .addCase(openModal, (state) => {
-      state.isOpen = true;
+    .addCase(showModal, (state) => {
+      state.isOpen = !state.isOpen;
     })
-    .addCase(closeModal, (state) => {
-      state.isOpen = false;
-    }).addCase(changeSortAlph, (state) => {
+    .addCase(changeSortAlph, (state) => {
       state.sortByAlphabet = true
       state.sortByBirthday = false
     }).addCase(changeSortBirth, (state) => {

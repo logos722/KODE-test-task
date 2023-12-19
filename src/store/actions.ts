@@ -1,6 +1,8 @@
 import { Departs } from "../../types";
 import { getAllUsers, getUserByParam } from "../API/fetchUsers";
 import { SET_USERS, SET_SELECTED_DEPARTMENT, SET_SEARCH_TERM, SET_SORT_OPTION, SET_DEPARTMENTS } from "./actionTypes";
+import { startLoading, stopLoading } from "./loadingActions";
+
 
 
 
@@ -26,6 +28,7 @@ export const setSortOption = (option: string) => ({
 
 export const fetchUsers = () => {
   return async (dispatch: any) => {
+    dispatch(startLoading())
     try {
       const users = await getAllUsers(); // Вызов функции API
       dispatch(setUsers(users)); // Диспатч актуализированных данных в хранилище
@@ -34,18 +37,24 @@ export const fetchUsers = () => {
       })))
     } catch (error) {
       console.error("Error fetching users:", error);
+    } finally {
+      dispatch(stopLoading())
+
     }
   };
 };
 
 export const fetchDeparts = (dep: Departs) => {
   return async (dispatch: any) => {
+    dispatch(startLoading())
     try {
       const users = await getUserByParam(dep); // Вызов функции API
       dispatch(setUsers(users)); // Диспатч актуализированных данных в хранилище
       dispatch(setSelectedDepartment(dep))
     } catch (error) {
       console.error("Error fetching deps:", error);
+    } finally {
+      dispatch(stopLoading())
     }
   };
 };
